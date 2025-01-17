@@ -54,12 +54,7 @@ function List(props){
     <ul>
       {props.list.map(item => {
         return(
-          <li key={item.objectID}>
-            <p>title: {item.title}</p>
-            <a href={item.url}>{item.title}</a>
-            <p>author: {item.author}</p>
-            <p>points: {item.points}</p>
-          </li>
+          <Item key={item.objectID} obj={item} />
         )
       })}
     </ul>
@@ -68,6 +63,31 @@ function List(props){
 
 List.propTypes = {
   list: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      points: PropTypes.number.isRequired,
+      objectID: PropTypes.number.isRequired
+    })
+  ).isRequired
+}
+
+
+function Item(props) {
+  console.log(props);
+  return(
+    <li>
+      <p>title: {props.obj.title}</p>
+      <a href={props.obj.url}>{props.obj.title}</a>
+      <p>author: {props.obj.author}</p>
+      <p>points: {props.obj.points}</p>
+    </li>
+  )
+}
+
+Item.propTypes = {
+  obj: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
