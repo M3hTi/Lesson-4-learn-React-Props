@@ -35,7 +35,11 @@ function App() {
 
 function Greeting(props) {
   function showMsg(obj){
-    return `${obj.greeting}, ${obj.title}`
+    let message = '';
+    for (const key in obj) {
+      message += obj[key] + (key === 'greeting' ? ', ' : '');
+    }
+    return message;
   }
   return(
     <h1>{showMsg(props.text)}</h1>
@@ -92,6 +96,7 @@ Item.propTypes = {
     url: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     points: PropTypes.number.isRequired,
+    objectID: PropTypes.number.isRequired
   }).isRequired,
 }
 
