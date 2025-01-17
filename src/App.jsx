@@ -87,15 +87,12 @@ function Item(props) {
 }
 
 Item.propTypes = {
-  obj: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      points: PropTypes.number.isRequired,
-      objectID: PropTypes.number.isRequired
-    })
-  ).isRequired
+  obj: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    points: PropTypes.number.isRequired,
+  }).isRequired,
 }
 
 export default App
