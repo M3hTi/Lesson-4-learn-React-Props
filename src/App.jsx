@@ -34,8 +34,11 @@ function App() {
 }
 
 function Greeting(props) {
+  function showMsg(obj){
+    return `${obj.greeting}, ${obj.title}`
+  }
   return(
-    <h1>{props.text.greeting}, {props.text.title}</h1>
+    <h1>{showMsg(props.text)}</h1>
   )
 }
 
